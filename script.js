@@ -3,11 +3,266 @@ const CORRECT_PASSCODE = "1010";
 let currentInput = "";
 // Database Konten Tetap Sama Seperti Sebelumnya
 const dataCatatanRama = {
-  schedule: `## catatan\n\n### schedule today\n☐ ambil mango pudding cake\n☐ bawa lilin. jangan lupa korek.\n☐ ambil buket bunga\n☐ membawa pisau\n☐ temui Yan\n\nYan Birthday — 10 Oct 🎂\npassword kotak kuenya jangan sampai lupa.\n\ndia billing tidak perlu hadiah.\naku tetap mau membawanya.`,
-  forget: `## catatan\n\n### aku lupa...\naku tadi mau menulis sesuatu.\n\nsepertinya penting, tapi kau menelepon dan setelah mendengar suaramu aku malah lupa.\n\nnanti kalau ingat kutulis lagi.`,
-  important: `## catatan\n\n### penting 🔒\n*catatan terkunci*\n\n**12 september · 23.48**\n\nAku sudah tahu namanya.\n\nHún Zhì. Lintah jiwa.\n...\n[Sesuai teks lengkap di atas]`,
-  college: `## catatan\n\n### tugas kuliah\n...\n[Sesuai teks lengkap di atas]`,
-  semester: `## catatan\n\n### semester ini\n...\n[Sesuai teks lengkap di atas]`
+  schedule: `## catatan
+
+### schedule today
+☐ membeli mango pudding cake  
+☐ bawa lilin. jangan lupa korek.  
+☐ membeli buket bunga  
+☐ membawa pisau  
+☐ temui Yan  
+
+Yan Birthday — 10 Oct 🎂  
+password kotak kuenya jangan sampai lupa.
+
+dia bilang tidak perlu hadiah.  
+aku tetap mau membawanya.`,
+  
+  forget: `## catatan
+
+### aku lupa...
+aku tadi mau menulis sesuatu.
+
+sepertinya penting, tapi kau menelepon dan setelah mendengar suaramu aku malah lupa.
+
+nanti kalau ingat kutulis lagi.`,
+  
+  important: `## catatan
+
+### penting 🔒
+*catatan terkunci*
+
+**12 september · 23.48**
+
+Aku sudah tahu namanya.
+
+Hún Zhì. Lintah jiwa.
+
+Aku mengulangnya beberapa kali di dalam kepala, berusaha membuat nama itu terdengar biasa. Tidak berhasil. Aku masih merasa mual setiap mengingat apa yang kulihat di dalam tubuhmu.
+
+Tapi tadi kau datang membawa makan malam. Kau mengomel karena aku belum makan sejak siang, lalu duduk di lantai kamarku dan mengambil pengisi daya tanpa meminta izin.
+
+Kau masih ingat aku tidak suka makanan terlalu pedas.
+
+Kau masih memisahkan daun bawang dari makananku.
+
+Yan baik padaku. Kau tidak berubah.
+
+Mungkin ada hal-hal yang belum kupahami. Mungkin aku terlalu cepat merasa takut.
+
+Besok aku akan menemuimu lagi. Aku ingin bisa melihat wajahmu tanpa terus memikirkan sesuatu yang bergerak di balik kulitmu.
+
+—
+
+**15 september · 02.16**
+
+Kau baru saja menelepon.
+
+Awalnya kukira kau tidak bisa tidur. Suaramu pelan, sedikit serak, and aku sudah hampir menyuruhmu minum air ketika kau berkata kedua hamstermu mati.
+
+Aku bertanya apa mereka sakit.
+
+Kau bilang bukan.
+
+“Aku yang membunuhnya.”
+
+Aku menunggu kau tertawa. Kau kadang membuat lelucon yang tidak kupahami, dan aku ingin sekali ini menjadi salah satunya.
+
+Tapi kau hanya mengeluh bahwa mereka berisik. Bahwa kandangnya harus dibersihkan lagi. Bahwa dua makhluk sekecil itu ternyata menyusahkan sekali ketika kau sedang lelah.
+
+Aku tidak tahu harus berkata apa.
+
+Aku ingat kau pernah mengirimiku foto mereka tidur berdempetan. Kau bahkan meminta pendapatku saat memilih nama.
+
+Tadi, sebelum menutup telepon, kau bertanya apakah besok aku mau sarapan bersamamu.
+
+Aku menjawab iya.
+
+Aku tidak tahu kenapa aku menjawab iya secepat itu.
+
+—
+
+**22 september · 19.32**
+
+Aku turut berduka cita atas meninggalnya nenekmu.
+
+Kalimat itu sudah kuketik di ruang percakapan kita ketika kau mengajakku ke warnet.
+
+Kupikir kau tidak ingin sendirian. Jadi aku datang.
+
+Kau sudah memesan dua komputer bersebelahan. Ada minuman untukku di meja, merek yang biasa kubeli. Kau melambaikan tangan ketika melihatku dan menyuruhku cepat duduk karena permainan hampir dimulai.
+
+Kau terlihat gembira.
+
+Aku merasa lega melihatnya. Sekarang aku malu mengakuinya, tetapi saat itu aku benar-benar lega. Kupikir setidaknya kau masih bisa tersenyum di hari seberat ini.
+
+Lalu aku bertanya tentang nenekmu.
+
+Tanganmu tetap bergerak di atas papan ketik.
+
+“Aku yang membunuhnya, Ram.”
+
+Aku masih bisa mendengar suara permainan dari komputermu. Seseorang berteriak lewat headset. Di belakang kita ada yang tertawa.
+
+Kau menoleh kepadaku sambil tersenyum.
+
+Senyum yang jarang sekali kulihat di wajah murammu. Tidak tampak dipaksakan. Kau bahkan terlihat senang akhirnya bisa bercerita kepadaku.
+
+Aku tidak ingat apa yang kujawab.
+
+Aku hanya ingat kakiku mundur sedikit ketika lututmu menyentuh lututku di bawah meja.
+
+Kau menyadarinya. Kau bertanya apakah aku kedinginan.
+
+Aku bilang iya.
+
+—
+
+**23 september · 04.07**
+
+Aku takut.
+
+Sudah berjam-jam aku mencoba menulis kalimat lain supaya catatan kemarin terdengar lebih masuk akal. Tidak ada.
+
+Aku takut kepadamu, Yan.
+
+Aku takut kau menelepon lagi dan menyebut nama seseorang yang kukenal. Aku takut suatu hari kau sedang lelah, seseorang terlalu berisik, lalu menurutmu membunuhnya adalah cara paling mudah untuk beristirahat.
+
+Aku juga takut karena kemarin aku tetap duduk di sebelahmu.
+
+Aku bermain dua ronde lagi.
+
+Aku membiarkanmu mengambil kentang goreng dari piringku.
+
+Lalu aku pulang tanpa memberi tahu siapa pun.
+
+—
+
+**27 september · 00.51**
+
+Darah segar.
+
+Itu yang kau makan.
+
+Lebih sering darah binatang, katamu, karena memburu manusia jauh lebih sulit. Kau mengatakannya seperti sedang menjelaskan kenapa kau membeli makanan di tempat yang lebih dekat.
+
+Aku mencoba mendengarkan sampai selesai. Sungguh.
+
+Tapi ketika kau mulai bercerita, aku harus pergi ke kamar mandi. Aku membuka keran supaya kau tidak mendengar aku muntah.
+
+Ketika aku keluar, kau sudah menyiapkan segelas air.
+
+Kau bertanya apakah aku sakit.
+
+Aku hampir marah kepadamu karena kau terdengar begitu khawatir.
+
+Aku tidak jadi meminumnya.
+
+—
+
+**29 september · 01.14**
+
+Yan sudah mati.
+
+Aku perlu menulisnya tanpa menghapusnya lagi.
+
+Sahabatku sudah mati.
+
+Yang datang ke kampus dengan wajahnya, yang duduk di sebelahku, yang mengirim pesan untuk memastikan aku sudah sampai rumah—ada sesuatu yang lain di dalam tubuh itu.
+
+Aku tahu.
+
+Tetapi tadi kau tertidur di bahuku dalam perjalanan pulang, dan aku tidak membangunkanmu meskipun lenganku kesemutan.
+
+Aku malah merendahkan suara ketika sopir bertanya kita turun di mana.
+
+What yang sedang kulindungi?
+
+—
+
+**2 oktober · 22.39**
+
+Mungkin aku seharusnya bersyukur.
+
+Ragamu masih utuh. Aku masih bisa melihatmu. Nomormu masih bisa kuhubungi, dan hampir setiap kali aku menelepon, kau mengangkatnya.
+
+Ada orang yang kehilangan seseorang dan bahkan tidak sempat berpamitan.
+
+Aku masih bisa mengajakmu makan. Aku masih bisa membelikan kue ulang tahunmu.
+
+Tapi aku mulai merasa sedang memakai wajahmu sebagai alasan untuk membiarkan semuanya terjadi.
+
+Kalau aku tidak mengenalmu, apakah aku masih akan mencari pembenaran sebanyak ini?
+
+Kalau yang mati berikutnya seseorang yang bisa kuselamatkan, apa yang harus kukatakan?
+
+Bahwa kau baik padaku?
+
+—
+
+**6 oktober · 03.08**
+
+Haruskah aku membunuhmu?
+
+Aku sudah mengetik pertanyaan itu three kali. Dua kali kuhapus.
+
+Kali ini akan kubiarkan.
+
+Aku belum tahu apakah aku sanggup. Aku bahkan belum tahu apakah caraku akan berhasil.
+
+Yang paling membuatku takut: aku masih berharap ada jawaban darimu. Seolah aku bisa datang, menunjukkan catatan ini, lalu kau akan membantuku memutuskan apa yang harus kulakukan.
+
+Dulu, kalau ada masalah, aku selalu mencarimu.
+
+Sekarang aku tidak tahu harus pergi ke siapa.
+
+—
+
+**9 oktober · 23.26**
+
+Besok ulang tahunmu.
+
+Pesanan kuenya sudah dikonfirmasi. Mango pudding cake. Aku meminta mereka menuliskan namamu dengan benar.
+
+Kau bertanya apakah aku akan datang.
+
+Aku bilang tentu saja.
+
+Setelah itu kau mengirim pesan lagi.
+
+“Jangan batal, ya.”
+
+Aku sudah memasang alarm. Bunganya kuambil sebelum menemuimu.
+
+Aku akan datang, Yan.
+
+Aku hanya tidak tahu bagaimana caranya menatapmu besok.`,
+  
+  college: `## catatan
+
+### tugas kuliah
+*diubah kemarin · 16.42*
+
+- revisi pendahuluan, sumbernya masih kurang
+- cek format daftar pustaka
+- minta bagian pembahasan ke anggota kelompok
+- upload sebelum 23.59, jangan mepet lagi
+- pinjam charger laptop, punyaku mulai rusak
+
+Yan belum kirim bagiannya. ingatkan besok.`,
+  
+  semester: `## catatan
+
+### semester ini
+umur 21, masih juga salah masuk kelas.
+
+☐ cek jadwal pengganti  
+☐ bayar uang kas kelompok  
+☐ print materi sebelum presentasi  
+☐ tidur sebelum jam dua, minimal sekali minggu ini  
+
+jangan ambil kelas pagi bareng Yan lagi.  
+kalau dia terlambat, aku ikut terlambat.`
 };
 
 let currentInputPin = ""; 
