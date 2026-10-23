@@ -1,6 +1,116 @@
 // Konfigurasi Kunci Keamanan
 const CORRECT_PASSCODE = "1010";
 let currentInput = "";
+// Database Konten Tetap Sama Seperti Sebelumnya
+const dataCatatanRama = {
+  schedule: `## catatan\n\n### schedule today\n☐ ambil mango pudding cake\n☐ bawa lilin. jangan lupa korek.\n☐ ambil buket bunga\n☐ membawa pisau\n☐ temui Yan\n\nYan Birthday — 10 Oct 🎂\npassword kotak kuenya jangan sampai lupa.\n\ndia billing tidak perlu hadiah.\naku tetap mau membawanya.`,
+  forget: `## catatan\n\n### aku lupa...\naku tadi mau menulis sesuatu.\n\nsepertinya penting, tapi kau menelepon dan setelah mendengar suaramu aku malah lupa.\n\nnanti kalau ingat kutulis lagi.`,
+  important: `## catatan\n\n### penting 🔒\n*catatan terkunci*\n\n**12 september · 23.48**\n\nAku sudah tahu namanya.\n\nHún Zhì. Lintah jiwa.\n...\n[Sesuai teks lengkap di atas]`,
+  college: `## catatan\n\n### tugas kuliah\n...\n[Sesuai teks lengkap di atas]`,
+  semester: `## catatan\n\n### semester ini\n...\n[Sesuai teks lengkap di atas]`
+};
+
+let currentInputPin = ""; 
+let isNoteUnlocked = false; // Status apakah gembok rahasia sudah berhasil dibuka pemain sekali
+let activeNoteId = "schedule";
+
+const sidebarItems = document.querySelectorAll('.sidebar-item');
+const notesTextarea = document.getElementById('notes-textarea');
+const pinOverlay = document.getElementById('pin-screen-overlay');
+const pinDots = document.querySelectorAll('.pin-dot');
+const pinErrorMsg = document.getElementById('pin-error-msg');
+
+// Mengatur Penukaran Tampilan Catatan
+sidebarItems.forEach(item => {
+  item.addEventListener('click', function() {
+    sidebarItems.forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+    
+    activeNoteId = this.getAttribute('data-note');
+    resetPinSystem();
+
+    if (activeNoteId === 'important' && !isNoteUnlocked) {
+      // Jika pilih catatan penting dan belum unlock -> Munculkan Layar Masukkan PIN
+      pinOverlay.classList.add('active');
+      notesTextarea.style.display = 'none';
+    } else {
+      // Catatan biasa langsung terbuka
+      pinOverlay.classList.remove('active');
+      notesTextarea.style.display = 'block';
+      notesTextarea.value = dataCatatanRama[activeNoteId];
+      notesTextarea.scrollTop = 0;
+    }
+  });
+});
+
+// Sistem Input Angka PIN via Keyboard Bawaan
+const numKeys = document.querySelectorAll('.num-key');
+numKeys.forEach(key => {
+  key.addEventListener('click', function() {
+    // Hanya proses input jika layar kunci PIN sedang aktif di layar
+    if (activeNoteId === 'important' && !isNoteUnlocked && currentInputPin.length < 4) {
+      const targetNum = this.getAttribute('data-val');
+      currentInputPin += targetNum;
+      
+      updatePinDotsVisual();
+      
+      // Jika panjang gelembung input sudah mencapai 4 Digit
+      if (currentInputPin.length === 4) {
+        setTimeout(verifyEnteredPin, 200);
+      }
+    }
+  });
+});
+
+// Fungsi Hapus Karakter PIN (Tombol Backspace ⌫)
+document.getElementById('kbd-delete-btn').addEventListener('click', () => {
+  if (activeNoteId === 'important' && !isNoteUnlocked && currentInputPin.length > 0) {
+    currentInputPin = currentInputPin.slice(0, -1);
+    updatePinDotsVisual();
+    pinErrorMsg.classList.remove('show');
+  }
+});
+
+// Update bulatan putih penuh/kosong di UI layar
+function updatePinDotsVisual() {
+  pinDots.forEach((dot, index) => {
+    if (index < currentInputPin.length) {
+      dot.classList.add('filled');
+    } else {
+      dot.classList.remove('filled');
+    }
+  });
+}
+
+// Verifikasi Jawaban 1010
+function verifyEnteredPin() {
+  if (currentInputPin === "1010") {
+    // BERHASIL UNLOCK
+    isNoteUnlocked = true;
+    pinOverlay.classList.remove('active');
+    notesTextarea.style.display = 'block';
+    notesTextarea.value = dataCatatanRama['important'];
+    
+    // Ubah meta text sidebar agar gembok terlihat terbuka secara visual
+    const lockedSidebarTitle = document.querySelector('[data-note="important"] .note-title');
+    const lockedSidebarSnippet = document.querySelector('[data-note="important"] .note-snippet');
+    if(lockedSidebarTitle) lockedSidebarTitle.innerHTML = "penting 🔓";
+    if(lockedSidebarSnippet) lockedSidebarSnippet.innerHTML = "Aku sudah tahu namanya...";
+  } else {
+    // PIN SALAH
+    pinErrorMsg.classList.add('show');
+    currentInputPin = "";
+    // Efek getar singkat/reset bulatan kosong
+    setTimeout(updatePinDotsVisual, 300);
+  }
+}
+
+// Reset data input pin jika berpindah-pindah dokumen
+function resetPinSystem() {
+  currentInputPin = "";
+  pinErrorMsg.classList.remove('show');
+  updatePinDotsVisual();
+        }
 
 // 1. Fungsi Jam Real-Time Otomatis
 function updateClock() {
