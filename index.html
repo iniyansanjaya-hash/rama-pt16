@@ -132,7 +132,119 @@
         </div>
 
     </div>
+<!-- Letakkan ini setelah bagian penutup iphone-dock -->
 
+<!-- 1. PEMBUNGKUS UTAMA MODAL APLIKASI iPHONE 15 -->
+<div id="notes-app-modal" class="app-modal">
+  
+  <!-- Header Aplikasi -->
+  <div class="modal-header">
+    <span class="modal-title">Catatan</span>
+    <button id="close-notes-btn" class="close-btn">Selesai</button>
+  </div>
+  
+  <!-- CONTAINER UTAMA UNTUK LAYOUT DUA KOLOM -->
+  <div class="modal-body split-container">
+    
+    <!-- KOLOM KIRI: DAFTAR JUDUL CATATAN -->
+    <div class="notes-sidebar">
+      <div class="sidebar-item active" data-note="schedule">
+        <span class="note-icon">📅</span>
+        <div class="note-meta">
+          <span class="note-title">schedule today</span>
+          <span class="note-snippet">ambil mango pudding...</span>
+        </div>
+      </div>
+      <div class="sidebar-item" data-note="forget">
+        <span class="note-icon">📝</span>
+        <div class="note-meta">
+          <span class="note-title">aku lupa...</span>
+          <span class="note-snippet">aku tadi mau menulis...</span>
+        </div>
+      </div>
+      <div class="sidebar-item locked-item" data-note="important">
+        <span class="note-icon">🔒</span>
+        <div class="note-meta">
+          <span class="note-title">penting</span>
+          <span class="note-snippet">catatan terkunci</span>
+        </div>
+      </div>
+      <div class="sidebar-item" data-note="college">
+        <span class="note-icon">📚</span>
+        <div class="note-meta">
+          <span class="note-title">tugas kuliah</span>
+          <span class="note-snippet">revisi pendahuluan...</span>
+        </div>
+      </div>
+      <div class="sidebar-item" data-note="semester">
+        <span class="note-icon">🗓️</span>
+        <div class="note-meta">
+          <span class="note-title">semester ini</span>
+          <span class="note-snippet">umur 21, masih salah...</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- KOLOM KANAN: TEMPELKAN KODE AREA ISI, LAYAR PIN, & KEYBOARD DI SINI -->
+    <div class="notes-content-wrapper">
+      
+      <div class="notes-content">
+        <!-- LAYAR LOCK SCREEN PIN -->
+        <div id="pin-screen-overlay" class="pin-overlay">
+          <div class="pin-lock-icon">🔒</div>
+          <div class="pin-instruction">Masukkan Kode Sandi</div>
+          <div class="pin-dots-container">
+            <div class="pin-dot"></div>
+            <div class="pin-dot"></div>
+            <div class="pin-dot"></div>
+            <div class="pin-dot"></div>
+          </div>
+          <div id="pin-error-msg" class="pin-error">Kode Sandi Salah. Coba Lagi.</div>
+        </div>
+
+        <!-- Area Teks Catatan -->
+        <textarea id="notes-textarea" readonly></textarea>
+      </div>
+      <!-- Simulasi Keyboard iPhone 15 -->
+      <div class="ios-keyboard">
+        <div id="kbd-num-row" class="kbd-row num-row">
+          <button class="k-key num-key" data-val="1">1</button>
+          <button class="k-key num-key" data-val="2">2</button>
+          <button class="k-key num-key" data-val="3">3</button>
+          <button class="k-key num-key" data-val="4">4</button>
+          <button class="k-key num-key" data-val="5">5</button>
+          <button class="k-key num-key" data-val="6">6</button>
+          <button class="k-key num-key" data-val="7">7</button>
+          <button class="k-key num-key" data-val="8">8</button>
+          <button class="k-key num-key" data-val="9">9</button>
+          <button class="k-key num-key" data-val="0">0</button>
+        </div>
+        <div class="kbd-row">
+          <button class="k-key">Q</button><button class="k-key">W</button><button class="k-key">E</button><button class="k-key">R</button><button class="k-key">T</button>
+          <button class="k-key">Y</button><button class="k-key">U</button><button class="k-key">I</button><button class="k-key">O</button><button class="k-key">P</button>
+        </div>
+        <div class="kbd-row padding-row">
+          <button class="k-key">A</button><button class="k-key">S</button><button class="k-key">D</button><button class="k-key">F</button><button class="k-key">G</button>
+          <button class="k-key">H</button><button class="k-key">J</button><button class="k-key">K</button><button class="k-key">L</button>
+        </div>
+        <div class="kbd-row special-row">
+          <button class="k-key shift-key">⇧</button>
+          <button class="k-key">Z</button><button class="k-key">X</button><button class="k-key">C</button><button class="k-key">V</button>
+          <button class="k-key">B</button><button class="k-key">N</button><button class="k-key">M</button>
+          <button id="kbd-delete-btn" class="k-key delete-key">⌫</button>
+        </div>
+        <div class="kbd-row space-row">
+          <button class="k-key wide-key">123</button>
+          <button class="k-key space-bar">spasi</button>
+          <button class="k-key wide-key">return</button>
+        </div>
+        <div class="home-indicator-bar"></div>
+      </div>
+      
+    </div> <!-- Akhir notes-content-wrapper -->
+    
+  </div> <!-- Akhir modal-body split-container -->
+</div> <!-- Akhir app-modal -->
     <script src="script.js"></script>
 </body>
   </html>
